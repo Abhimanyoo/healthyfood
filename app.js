@@ -21,7 +21,9 @@ var users = require('./routes/users');
 
 //mongoose and mongo connection
 mongoose.promise = global.Promise;
-mongoose.createConnection(dbconfig.url);
+//mongoose.createConnection("dbconfig.url");
+mongoose.createConnection("mongodb://healthyfood-app:r3d33m3d@ds121575.mlab.com:21575/healthyfood");
+
 var db = mongoose.connection;
 
 //mongodb
@@ -67,7 +69,14 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'client')));
 
-//viewa engine
+//view engine
+// include and initialize the rollbar library with your access token
+var Rollbar = require("rollbar");
+var rollbar = new Rollbar("5ecf65302907451f9953a7d209fd9e1b");
+
+// record a generic message and send it to Rollbar
+rollbar.log("Hello world!");
+
 //app.set('views', __dirname + '/views')
 app.set('views', path.join(__dirname, 'views'));
 //app.engine('pug', require('pug').__express)

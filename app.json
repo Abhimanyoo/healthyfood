@@ -1,0 +1,18 @@
+{
+  "name": "healthyfood",
+  "description": "A food ordering website using node.js and react",
+  "scripts": {
+  },
+  "env": {
+  },
+  "formation": {
+  },
+  "addons": [
+
+  ],
+  "buildpacks": [
+    {
+      "url": "heroku/nodejs"
+    }
+  ]
+}
